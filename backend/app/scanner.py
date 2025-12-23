@@ -1,3 +1,4 @@
+# scanner.py (DO NOT TOUCH THIS WITHOUT PERMISSION)
 import requests
 from bs4 import BeautifulSoup
 import logging
