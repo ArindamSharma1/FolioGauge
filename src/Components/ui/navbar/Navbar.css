@@ -53,6 +53,8 @@
     padding: 0 1.25rem;
     max-width: 75rem;
     font-family: "Work Sans", sans-serif;
+    backdrop-filter: saturate(180%) blur(50px);
+    -webkit-backdrop-filter: saturate(180%) blur(50px);
 }
 
 .brand {
