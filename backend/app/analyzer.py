@@ -29,7 +29,21 @@ def calculate_score(data: dict, persona: str = "recruiter") -> dict:
     elif persona == "client":
         weights.update({"content": 25, "visual": 15, "seo": 20}) # Trust is king
 
-    # ... (tech stack score logic kept similar but scaled to new weight) ...
+    # -----------------------------
+    # 1. Modern Tech Stack
+    # -----------------------------
+    stack_score = 0
+    if tech_stack:
+        stack_score = min(weights["tech"], len(tech_stack) * 5)
+        if persona != "client":
+             insights.append(f"Modern tech stack detected: {', '.join(tech_stack)}.")
+    
+    if is_spa:
+        stack_score += (5 if persona != "client" else 0)
+        if persona == "recruiter":
+            insights.append("SPA architecture detected (Good for UX).")
+
+    score += min(stack_score, weights["tech"])
 
     # -----------------------------
     # 2. visual Design (NEW)
@@ -49,7 +63,23 @@ def calculate_score(data: dict, persona: str = "recruiter") -> dict:
 
     score += visual_score
 
-    # ... (seo logic) ...
+    # -----------------------------
+    # 3. Identity & SEO
+    # -----------------------------
+    seo_score = 0
+    if data["title"] and len(data["title"]) > 8:
+        seo_score += (weights["seo"] * 0.5)
+    else:
+        suggestions.append("Add a descriptive page title.")
+    
+    if data["description_length"] >= 50:
+        seo_score += (weights["seo"] * 0.5)
+        if persona == "recruiter":
+            insights.append("Meta description helps me find you on Google.")
+    else:
+        suggestions.append("Improve meta description for SEO.")
+    
+    score += seo_score
     
     
     # -----------------------------
