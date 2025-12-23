@@ -31,12 +31,15 @@
     z-index: 100;
     margin: 0 auto;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    background-color: rgba(255, 255, 255, 0.85);
+    /* High opacity for legibility */
+    backdrop-filter: blur(20px) saturate(180%);
+    /* Strong blur to hide text behind */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle separator */
     box-shadow: var(--shadow-small);
     transition: transform 0.3s ease-in-out;
-    opacity: 0.9;
 }
 
 .header.hidden {
