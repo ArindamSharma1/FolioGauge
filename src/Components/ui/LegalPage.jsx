@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import './LegalPage.css';
-import Footer from '../landing/footer';
+import Footer from './landing/footer';
 
 const LegalPage = ({ type }) => {
     useEffect(() => {
