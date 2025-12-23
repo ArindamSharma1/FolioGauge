@@ -32,11 +32,11 @@
     margin: 0 auto;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: saturate(180%) blur(50px);
-    -webkit-backdrop-filter: saturate(180%) blur(50px);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     box-shadow: var(--shadow-small);
     transition: transform 0.3s ease-in-out;
-    opacity: 1;
+    opacity: 0.9;
 }
 
 .header.hidden {
@@ -54,8 +54,8 @@
     padding: 0 1.25rem;
     max-width: 75rem;
     font-family: "Work Sans", sans-serif;
-    backdrop-filter: saturate(180%) blur(50px);
-    -webkit-backdrop-filter: saturate(180%) blur(50px);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 }
 
 .brand {
