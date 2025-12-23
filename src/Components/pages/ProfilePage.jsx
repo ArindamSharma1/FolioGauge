@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../../supabaseClient';
 import { useNavigate } from 'react-router-dom';
 import FadeIn from '../ui/FadeIn';
+import Spinner from '../ui/Spinner';
 import { Helmet } from 'react-helmet-async';
 import './ProfilePage.css';
 
@@ -186,7 +187,13 @@ const ProfilePage = () => {
     };
 
     if (loading && !user) {
-        return <div className="profile-container">Loading...</div>;
+        return (
+            <div className="profile-page-wrapper">
+                <div className="profile-container" style={{ display: 'flex', justifyContent: 'center', paddingTop: '100px' }}>
+                    <Spinner size="large" />
+                </div>
+            </div>
+        );
     }
 
     const firstName = user?.user_metadata?.full_name?.split(' ')[0] || 'User';
