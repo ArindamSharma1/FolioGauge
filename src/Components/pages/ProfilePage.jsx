@@ -138,9 +138,12 @@ const ProfilePage = () => {
 
     const handleLogout = async () => {
         try {
-            const { error } = await supabase.auth.signOut();
-            if (error) throw error;
-            navigate('/');
+            // Navigate first to avoid ProtectedRoute redirecting to /login
+            // Pass the toast message via state
+            navigate('/', { state: { toastMessage: "Successfully signed out!" } });
+
+            // Then sign out (safe to do after navigation started)
+            await supabase.auth.signOut();
         } catch (error) {
             console.error('Error logging out:', error.message);
         }
