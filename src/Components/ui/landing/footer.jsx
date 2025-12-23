@@ -40,10 +40,9 @@ const Footer = () => {
                         <span>FolioGauge</span>
                     </div>
                     <div className="footer-legal">
-                        <a href="#">About FolioGauge</a>
-                        <a href="#">Products</a>
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
+                        <Link to="/privacy">Privacy Policy</Link>
+                        <Link to="/terms">Terms of Service</Link>
+                        <Link to="/refund">Refund Policy</Link>
                     </div>
                 </div>
             </div>

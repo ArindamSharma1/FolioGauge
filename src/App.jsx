@@ -12,6 +12,7 @@ import GetStarted from "./Components/ui/landing/getstarted.jsx"
 import WhyUs from "./Components/ui/landing/whyus.jsx"
 import Footer from "./Components/ui/landing/footer.jsx"
 import FAQ from "./Components/ui/FAQ/FAQ.jsx"
+import LegalPage from "./Components/ui/LegalPage.jsx"
 import Lenis from 'lenis'
 
 import Signup from "./Components/ui/login-signup/signup.jsx"
@@ -101,6 +102,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/help" element={<FAQ />} />
+            <Route path="/privacy" element={<LegalPage type="privacy" />} />
+            <Route path="/terms" element={<LegalPage type="terms" />} />
+            <Route path="/refund" element={<LegalPage type="refund" />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/scan" element={<ScanPage />} />
               <Route path="/profile" element={<ProfilePage />} />
