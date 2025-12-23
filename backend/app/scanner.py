@@ -59,17 +59,32 @@ def fetch_site_data(url: str) -> dict:
 
     tech_stack = []
     if has_react: tech_stack.append("React/JS Framework")
-    if has_vite: tech_stack.append("Vite/Modern Bundler")
-    if has_tailwind: tech_stack.append("Tailwind CSS")
-    if has_bootstrap: tech_stack.append("Bootstrap")
+    # 5. Visual / Design Signals
+    # -----------------------------
+    # Fonts
+    custom_fonts = False
+    for link in soup.find_all("link", href=True):
+        href = link["href"].lower()
+        if "fonts.googleapis.com" in href or "typekit" in href or "fonts.cdnfonts.com" in href:
+            custom_fonts = True
+            break
+            
+    # CTAs / Buttons
+    # profound search for "btn", "button", "cta" in class OR role="button"
+    buttons = soup.find_all(lambda tag: (tag.name == "button") or 
+                                       (tag.has_attr("class") and any("btn" in c or "button" in c or "cta" in c for c in tag["class"])) or
+                                       (tag.has_attr("role") and tag["role"] == "button"))
+    button_count = len(buttons)
 
     logger.info(
-    f"Scan summary | headings={len(headings)} "
-    f"paragraphs={len(paragraphs)} "
-    f"images={len(images)} "
-    f"deprecated_tags={deprecated_count} "
-    f"tech_stack={tech_stack}"
-)
+        f"Scan summary | headings={len(headings)} "
+        f"paragraphs={len(paragraphs)} "
+        f"images={len(images)} "
+        f"custom_fonts={custom_fonts} "
+        f"buttons={button_count} "
+        f"deprecated_tags={deprecated_count} "
+        f"tech_stack={tech_stack}"
+    )
 
 
     return {
@@ -84,5 +99,7 @@ def fetch_site_data(url: str) -> dict:
         "deprecated_tag_count": deprecated_count,
         "html_size_bytes": len(html_content),
         "tech_stack": tech_stack,
-        "is_spa": is_spa
+        "is_spa": is_spa,
+        "custom_fonts": custom_fonts,
+        "button_count": button_count
     }
