@@ -21,6 +21,8 @@ origins = [
 # Add production frontend URL from env
 prod_origin = os.getenv("FRONTEND_URL")
 if prod_origin:
+    # Strip trailing slash if present to match browser Origin header exactly
+    prod_origin = prod_origin.rstrip("/")
     origins.append(prod_origin)
 
 app.add_middleware(
