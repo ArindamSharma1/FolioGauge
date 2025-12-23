@@ -36,6 +36,7 @@
     -webkit-backdrop-filter: saturate(180%) blur(50px);
     box-shadow: var(--shadow-small);
     transition: transform 0.3s ease-in-out;
+    opacity: 1;
 }
 
 .header.hidden {
