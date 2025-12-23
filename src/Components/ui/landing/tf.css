@@ -1,0 +1,164 @@
+.tf-section {
+    width: 100%;
+    padding: 0;
+    margin-top: 15rem;
+    /* margin: 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Work Sans", sans-serif;
+    overflow: hidden;
+}
+
+.video-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 50rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.fg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tf-fade {
+    width: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .video-wrapper {
+        height: 260px;
+    }
+
+    .about-1 {
+        flex-direction: column;
+        padding-top: 5rem;
+        height: auto;
+    }
+
+    .about-1-text {
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .beam-container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+.about-1 {
+    padding-top: 15rem;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding-bottom: 1rem;
+    font-family: "Work Sans", sans-serif;
+}
+
+.about-content {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.about-1-text {
+    font-size: 2.5rem;
+    font-weight: 500;
+    word-spacing: 7px;
+    color: #121317;
+    padding-left: 5rem;
+    position: relative;
+    margin-bottom: 25rem;
+    margin-top: 0;
+    display: inline-block;
+}
+
+.about-1-text.typing-done::after {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: var(--primary-text);
+    margin-left: 5px;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+}
+
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Video Overlay for Scroll Performance */
+.video-element {
+    pointer-events: none;
+    /* Disable interaction by default */
+    transition: filter 0.3s;
+}
+
+.video-element.interactible {
+    pointer-events: auto;
+    /* Enable interaction when clicked */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-hint {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+}
+
+.video-overlay:hover .play-hint {
+    opacity: 1;
+}

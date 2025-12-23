@@ -1,0 +1,139 @@
+.all-features-section {
+    padding: 80px 20px;
+    font-family: "Work Sans", sans-serif;
+    color: #1A1A1A;
+    position: relative;
+    /* border-top removed in favor of gradient line below */
+    z-index: 0;
+}
+
+/* Gradient Top Line */
+.all-features-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(96, 165, 250, 0.4) 15%, rgba(96, 165, 250, 0.4) 85%, transparent 100%);
+    z-index: 1;
+}
+
+.all-features-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9fafb;
+    background-image: radial-gradient(#E5E7EB 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.all-features-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.all-features-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-text);
+}
+
+.features-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    background: white;
+    border: 1px solid #e5e7eb;
+}
+
+.features-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.features-table th,
+.features-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.features-table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    color: #374151;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.features-table th:first-child {
+    width: 40%;
+}
+
+.features-table td {
+    color: #4b5563;
+    font-size: 0.95rem;
+}
+
+.features-table tr:last-child td {
+    border-bottom: none;
+}
+
+.features-table td:not(:first-child) {
+    text-align: center;
+}
+
+.features-table th:not(:first-child) {
+    text-align: center;
+}
+
+/* Check/Cross Icons */
+.icon-check {
+    color: #10b981;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.icon-cross {
+    color: #d1d5db;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.table-header-plan {
+    font-size: 1.1rem;
+    color: grey;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.table-header-price {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 400;
+    text-transform: none;
+    display: block;
+}
+
+/* Category rows */
+.category-row td {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #1A1A1A;
+    padding-top: 2rem;
+    padding-bottom: 0.75rem;
+}

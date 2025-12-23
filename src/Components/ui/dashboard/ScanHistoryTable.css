@@ -1,0 +1,170 @@
+/* Neutral Monochrome Table Theme */
+.history-table-container {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.table-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    /* Dark Gray / Black */
+    margin: 0;
+}
+
+.count-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    /* Gray */
+    background: #f3f4f6;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.scan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.scan-table th {
+    text-align: left;
+    padding: 1rem;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.scan-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+}
+
+.scan-table tr:last-child td {
+    border-bottom: none;
+}
+
+.date-cell {
+    white-space: nowrap;
+    color: #6b7280 !important;
+}
+
+.url-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    color: #1A1A1A !important;
+}
+
+.persona-tag {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: capitalize;
+    border: 1px solid #e5e7eb;
+}
+
+.score-cell {
+    font-weight: 600;
+}
+
+.score-badge {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    /* Explicitly remove any shape styling */
+    background: transparent !important;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+}
+
+/* Minimalist Score Colors - Text Only */
+.score-badge.high {
+    color: #059669;
+}
+
+.score-badge.med {
+    color: #d97706;
+}
+
+.score-badge.low {
+    color: #dc2626;
+}
+
+.action-col {
+    text-align: right;
+}
+
+.action-cell {
+    text-align: right;
+}
+
+.view-btn {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-btn:hover {
+    background: #1A1A1A;
+    color: #fff;
+    border-color: #1A1A1A;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.pagination button {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #374151;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination button:not(:disabled):hover {
+    background: #f3f4f6;
+}

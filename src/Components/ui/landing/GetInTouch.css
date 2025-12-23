@@ -1,0 +1,143 @@
+.get-in-touch-section {
+    width: 100%;
+    padding: 6rem 1rem;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* Ensure it sits above background elements if any */
+    z-index: 10;
+}
+
+.get-in-touch-section {
+    width: 100%;
+    padding: 6rem 1rem;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.get-in-touch-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.git-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    background: #ffffff;
+    padding: 4rem;
+    border-radius: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.git-text-side {
+    text-align: left;
+}
+
+.git-title {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.git-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.git-actions-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.git-action-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #F9FAFB;
+    border-radius: 16px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.git-action-card:hover {
+    background: #ffffff;
+    border-color: #e5e7eb;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.git-icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-text);
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.git-action-text h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1A1A1A;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.git-action-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #6B7280;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .git-layout {
+        grid-template-columns: 1fr;
+        padding: 2.5rem;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .git-text-side {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .git-title {
+        font-size: 2.25rem;
+    }
+
+    .git-actions-side {
+        width: 100%;
+    }
+
+    .git-action-card {
+        text-align: left;
+        /* Keep cards mostly left-aligned internally for readability */
+    }
+}

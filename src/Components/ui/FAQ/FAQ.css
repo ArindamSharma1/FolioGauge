@@ -1,0 +1,255 @@
+/* Help Page Container */
+.help-page {
+    max-width: 800px;
+    margin: 120px auto 80px;
+    padding: 0 24px;
+    font-family: "Work Sans", sans-serif;
+    color: #111;
+    min-height: 80vh;
+}
+
+/* Sections Common */
+.help-section {
+    margin-bottom: 5rem;
+}
+
+.section-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.help-hero {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.help-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+    color: var(--primary-text);
+}
+
+.help-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Quick Start Guide */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+}
+
+.step-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.step-item p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.step-num {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #f3f4f6;
+    color: #111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* Use Cases */
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+}
+
+.uc-item {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #f3f4f6;
+    transition: transform 0.2s;
+}
+
+.uc-item:hover {
+    transform: translateY(-4px);
+}
+
+.uc-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #111;
+}
+
+.uc-item p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* FAQ List */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #111;
+    transition: color 0.2s;
+    font-family: inherit;
+}
+
+.faq-question:hover {
+    color: #60A5FA;
+}
+
+.faq-icon {
+    width: 20px;
+    height: 20px;
+    color: #bbb;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: #60A5FA;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    opacity: 1;
+    margin-bottom: 1.5rem;
+}
+
+.faq-answer p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 90%;
+}
+
+/* Plans & Info */
+.info-block h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.info-block p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Troubleshooting */
+.troubleshoot-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.ts-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.ts-issue {
+    font-weight: 600;
+    color: #111;
+    font-size: 1rem;
+}
+
+.ts-fix {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Contact Support */
+.contact-support {
+    text-align: center;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+}
+
+.contact-text {
+    font-size: 1.25rem;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.contact-link {
+    color: #60A5FA;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: opacity 0.2s;
+}
+
+.contact-link:hover {
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .help-title {
+        font-size: 2.5rem;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .help-page {
+        margin-top: 100px;
+    }
+}

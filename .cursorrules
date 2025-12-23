@@ -1,0 +1,26 @@
+# .cursorrules
+
+# Project Context
+# This project uses React, Vite, and TailwindCSS.
+# Please adhere to the following rules and preferences.
+
+# Code Style
+- Use functional components with hooks.
+- Prefer arrow functions for components.
+- Use strict mode.
+- Ensure all components are responsive by design using TailwindCSS.
+
+# Naming Conventions
+- Components: PascalCase (e.g., `MyComponent.jsx`)
+- Utilities/Functions: camelCase (e.g., `myUtility.js`)
+- Constants: UPPER_SNAKE_CASE (e.g., `MAX_COUNT`)
+
+# TailwindCSS Usage
+- Use utility classes over inline styles.
+- Use standard Tailwind config colors where possible.
+- Group related classes (e.g. layout first, then typography, then visuals).
+
+# General Behavior
+- When adding new dependencies, use `npm install`.
+- Always verify your changes by running the dev server (if requested) or explaining how to verify.
+- Keep explanations concise and focused on the code changes.

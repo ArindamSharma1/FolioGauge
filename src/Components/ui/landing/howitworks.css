@@ -1,0 +1,115 @@
+/* How It Works Section */
+.how-it-works-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 6rem auto 4rem auto;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.how-it-works-title {
+    font-family: "Work Sans", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #1A1A1A;
+}
+
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.connector-line {
+    position: absolute;
+    top: 40px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #E5E7EB, transparent);
+    z-index: 0;
+    display: none;
+    /* Hidden by default, unhide via logic if needed, or keeping it strictly decorative for now */
+}
+
+/* We can show connector on desktop if we want, but grid-template-columns handles layout */
+@media (min-width: 768px) {
+    .connector-line {
+        display: block;
+    }
+}
+
+.step-card {
+    z-index: 1;
+    position: relative;
+    /* Context for z-index */
+    background: transparent;
+    /* Or white if needed, but transparent looks fine on bg */
+}
+
+.step-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 2rem;
+    background: white;
+    /* Fallback */
+}
+
+.step-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1A1A1A;
+}
+
+.step-description {
+    color: #6B7280;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Colors for specific steps */
+.step-1 .step-icon-circle {
+    background: #EFF6FF;
+    color: #2563EB;
+    border: 1px solid #DBEAFE;
+}
+
+.step-2 .step-icon-circle {
+    background: #F0F9FF;
+    /* Slightly different blue/green? Or match provided colors */
+    background: #F0FDF4;
+    color: #16A34A;
+    border: 1px solid #DCFCE7;
+}
+
+.step-3 .step-icon-circle {
+    background: #FFF7ED;
+    color: #EA580C;
+    border: 1px solid #FFEDD5;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .how-it-works-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .connector-line {
+        display: none;
+        /* Hide line on mobile */
+    }
+
+    .how-it-works-container {
+        margin: 4rem auto 2rem auto;
+    }
+}

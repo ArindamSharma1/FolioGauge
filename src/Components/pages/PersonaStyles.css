@@ -1,0 +1,126 @@
+/* Persona UI & Benchmarks CSS */
+
+/* Persona Selector */
+.persona-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3.5rem;
+    /* Space before input */
+    gap: 0.8rem;
+}
+
+.persona-label {
+    font-size: 0.9rem;
+    color: #6B7280;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.persona-options {
+    display: flex;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 0.4rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.persona-btn {
+    background: transparent;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 99px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4B5563;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.persona-btn:hover {
+    color: #1A1A1A;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.persona-btn.active {
+    background: #FFFFFF;
+    color: #2563EB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+}
+
+.persona-btn.locked-persona {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.persona-btn.locked-persona:hover {
+    background: transparent;
+    color: #4B5563;
+}
+
+/* Persona Badge in Results */
+.persona-badge-display {
+    font-size: 0.9rem;
+    color: #6B7280;
+    margin-top: 0.25rem;
+}
+
+.persona-badge-display strong {
+    color: #2563EB;
+    font-weight: 600;
+}
+
+
+/* Benchmarking Cards */
+.benchmarks-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.benchmark-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.bench-cat {
+    font-size: 0.85rem;
+    color: #6B7280;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.bench-stat {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.bench-percent {
+    font-size: 0.85rem;
+    color: #10B981;
+    /* Default green */
+    font-weight: 600;
+}
