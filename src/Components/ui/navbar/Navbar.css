@@ -27,23 +27,15 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
-
-    /* KEY: higher opacity */
-    background: rgba(255, 255, 255, 0.72);
-
-    backdrop-filter: blur(18px) saturate(160%);
-    -webkit-backdrop-filter: blur(18px) saturate(160%);
-
-    /* Glass edge */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
-
-    /* Separation from content */
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
-    transition: transform 0.3s ease-in-out;
+        0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease-in-out,
+        background-color 0.3s ease;
 }
 
 .header::before {
@@ -68,7 +60,6 @@
     margin: 0 auto;
     padding: 0 1.25rem;
     background: transparent;
-    backdrop-filter: none;
 }
 
 .brand {
