@@ -190,11 +190,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Project Link: [https://github.com/ArindamSharma1/FolioGauge](https://github.com/ArindamSharma1/FolioGauge)
 
 ```
-
-### 💡 **Quick Tips to make this README even better:**
-
-1.  **Screenshots are mandatory:** I added a placeholder table for screenshots. **You must** take a screenshot of your Landing Page and your "Results/Dashboard" page, save them in your project's `public/images/` folder, and update the paths in the README code above.
-2.  **Verify the Env Vars:** Check the `.env` section I wrote. If you used `CLAUDE_API_KEY` instead of `OPENAI`, just swap that line.
-3.  **Badges:** I added a few dynamic badges at the top. They make the repo look very professional immediately.
-
-```
