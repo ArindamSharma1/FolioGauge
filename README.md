@@ -18,7 +18,7 @@
 
 | Landing Page | Analysis Dashboard |
 |:---:|:---:|
-| ![Landing Page](public/images/landing-demo.png)  |
+| ![Landing Page](public/landing-demo.png)  |
 
 ---
 
