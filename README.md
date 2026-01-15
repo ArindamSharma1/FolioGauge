@@ -1,7 +1,7 @@
 # FolioGauge 🚀
 **AI-powered portfolio analysis platform for developers and designers**
 
-![License](https://img.shields.io/github/license/ArindamSharma1/FolioGauge)
+[![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind-38bdf8)
