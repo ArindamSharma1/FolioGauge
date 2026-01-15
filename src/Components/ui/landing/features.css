@@ -56,10 +56,12 @@
 .pricing-container {
     display: flex;
     flex-direction: column;
-    gap: 32rem;
+    gap: 2rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: center;
+    /* Ensure cards are centered on mobile */
 }
 
 @media (min-width: 1024px) {
