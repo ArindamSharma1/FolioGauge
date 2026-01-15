@@ -185,7 +185,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 **Arindam Sharma** - GitHub: [@ArindamSharma1](https://github.com/ArindamSharma1)
 
-* LinkedIn: [Arindam Sharma](https://www.google.com/search?q=https://linkedin.com/in/arindam-sharma)
+* LinkedIn: [Arindam Sharma](https://www.linkedin.com/in/arindam-sharma-ab4712251/)
 
 Project Link: [https://github.com/ArindamSharma1/FolioGauge](https://github.com/ArindamSharma1/FolioGauge)
 
