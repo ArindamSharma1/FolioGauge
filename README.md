@@ -1,4 +1,5 @@
 # FolioGauge 🚀
+**AI-powered portfolio analysis platform for developers and designers**
 
 ![License](https://img.shields.io/github/license/ArindamSharma1/FolioGauge)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
@@ -18,7 +19,7 @@
 
 | Landing Page | Analysis Dashboard |
 |:---:|:---:|
-| ![Landing Page](public/landing-demo.png)  |
+| ![Landing Page](public/landing-demo.png)  | ![Dashboard](public/dashboard-demo.png) |
 
 ---
 
