@@ -20,7 +20,7 @@
 
 | Landing Page | Analysis Dashboard |
 |:---:|:---:|
-| ![Landing Page](public/images/landing-demo.png) *Replace with actual screenshot* | ![Dashboard](public/images/dashboard-demo.png) *Replace with actual screenshot* |
+| ![Landing Page](public/images/landing-demo.png)  | ![Dashboard](public/images/dashboard-demo.png)  |
 
 ---
 
