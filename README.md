@@ -18,7 +18,6 @@
 ## 📸 Screenshots
 
 | Landing Page | Analysis Dashboard | Scanner | Tools & Actions | 
-Landing Page
 | ![Landing Page](public/landing-demo.png)  | Dashboard ![Dashboard](public/dashboard-demo.png) | Scanner ![Scanner](public/scanner-demo.png) | Tools & Actions ![Tools & Actions](public/Tools%20&%20Actions.png) 
 
 ---
