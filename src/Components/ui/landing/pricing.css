@@ -68,10 +68,11 @@
 .pricing-container {
     display: flex;
     flex-direction: column;
-    gap: 32rem;
+    gap: 2rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: center;
 }
 
 @media (min-width: 1024px) {
@@ -210,6 +211,8 @@
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    align-items: flex-start;
+    /* Default to start */
 }
 
 .feature-item {
