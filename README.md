@@ -1,5 +1,3 @@
-
-```markdown
 # FolioGauge 🚀
 
 ![License](https://img.shields.io/github/license/ArindamSharma1/FolioGauge)
@@ -20,7 +18,7 @@
 
 | Landing Page | Analysis Dashboard |
 |:---:|:---:|
-| ![Landing Page](public/images/landing-demo.png)  | ![Dashboard](public/images/dashboard-demo.png)  |
+| ![Landing Page](public/images/landing-demo.png)  |
 
 ---
 
