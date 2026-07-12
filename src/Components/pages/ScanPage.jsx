@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet-async';
 const ScanPage = () => {
     const location = useLocation();
     const isHome = location.pathname === '/';
-    const [userTier, setUserTier] = useState('free'); // default user will be free (obviously)
+    const [userTier, setUserTier] = useState('super_pro'); // default user to super_pro (admin) for bypassed local dev
     const [url, setUrl] = useState('');
     const [persona, setPersona] = useState('recruiter'); // recruiter, design_lead, client
     const [isScanning, setIsScanning] = useState(false);
@@ -220,6 +220,10 @@ const ScanPage = () => {
 
     const fetchUserTier = async (token) => {
         try {
+            if (token === 'mock-local-admin-token') {
+                setUserTier('super_pro');
+                return;
+            }
             const res = await fetch(`${API_BASE_URL}/user/usage`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
