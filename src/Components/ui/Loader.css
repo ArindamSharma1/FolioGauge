@@ -4,12 +4,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
-    z-index: 9999;
+    background-color: var(--bg-obsidian, #080a0f);
+    z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
 }
 
 .loader-container.fade-out {
@@ -23,27 +23,75 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1.5rem;
 }
 
-.loader-logo {
-    width: 120px;
-    height: auto;
-    animation: pulse 1.5s ease-in-out infinite;
+.loader-logo-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(0.95);
-        opacity: 0.8;
-    }
-
-    50% {
-        transform: scale(1.05);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(0.95);
-        opacity: 0.8;
-    }
+.loader-symbol {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--accent-cyan, #00f0ff);
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+    animation: pulseSymbol 1.2s ease-in-out infinite;
 }
+
+.loader-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-top-color: var(--accent-cyan, #00f0ff);
+    border-bottom-color: var(--accent-magenta, #ff007f);
+    border-radius: 50%;
+    animation: rotateRing 1s linear infinite;
+}
+
+.loader-text-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary, #94a3b8);
+    letter-spacing: 0.1em;
+}
+
+.loader-bar-bg {
+    width: 160px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loader-bar-fill {
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan, #00f0ff), var(--accent-magenta, #ff007f));
+    animation: loadBar 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSymbol {
+    0%, 100% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.08); opacity: 1; text-shadow: 0 0 25px rgba(0, 240, 255, 1); }
+}
+
+@keyframes rotateRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes loadBar {
+    0% { transform: translateX(-100%); width: 30%; }
+    100% { transform: translateX(300%); width: 60%; }
+}

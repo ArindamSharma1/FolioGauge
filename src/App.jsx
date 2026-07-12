@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import './App.css'
@@ -28,11 +28,13 @@ import { supabase } from "./supabaseClient"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const handleLoaded = useCallback(() => setIsLoading(false), []);
 
   useEffect(() => {
     // Scroll to top on initial load/refresh
     window.scrollTo(0, 0);
   }, []);
+
 
   useEffect(() => {
     supabase?.auth.onAuthStateChange((event, session) => {
@@ -80,7 +82,7 @@ function App() {
         <meta name="description" content="Optimize your design portfolio with AI-driven insights. Get instant feedback on your case studies, layout, and content to land your dream job." />
         <meta name="keywords" content="portfolio review, design portfolio, ux portfolio, ai design critique, career growth, designer tools" />
       </Helmet>
-      {isLoading && <Loader onLoaded={() => setIsLoading(false)} />}
+      {isLoading && <Loader onLoaded={handleLoaded} />}
       <Router>
         <Routes>
           <Route element={<Layout />}>
