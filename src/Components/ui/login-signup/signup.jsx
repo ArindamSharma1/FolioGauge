@@ -84,22 +84,22 @@ export default function SignupBox() {
 
         <div className="signup-wrapper">
             <div className="signup-header">
-                <h1>Create account</h1>
-                <p>Join the community of top designers.</p>
-                <p className="tagline">AI-powered portfolio insights for modern creators</p>
+                <h1>Request Operator Clearance</h1>
+                <p>Register new security profile on the telemetry network.</p>
+                <p className="tagline">Encrypted Protocol Session • Security Level 4</p>
             </div>
 
             <div className="form-box">
                 <form className="form" onSubmit={handleEmailSignup}>
                     <div className="form-container">
-                        <input name="name" type="text" className="input" placeholder="Full Name" required />
-                        <input name="email" type="email" className="input" placeholder="Email" required />
+                        <input name="name" type="text" className="input" placeholder="Operator Identity (Full Name)" required />
+                        <input name="email" type="email" className="input" placeholder="Operator Email Address" required />
                         <div className="password-input-wrapper" style={{ position: 'relative' }}>
                             <input
                                 name="password"
                                 type={showPassword ? "text" : "password"}
                                 className="input"
-                                placeholder="Password"
+                                placeholder="Security Key / Password"
                                 required
                             />
                             <button
@@ -113,11 +113,13 @@ export default function SignupBox() {
                                     background: 'none',
                                     border: 'none',
                                     cursor: 'pointer',
-                                    color: '#9CA3AF',
+                                    color: '#c084fc',
                                     padding: 0,
                                     height: 'auto',
                                     boxShadow: 'none',
-                                    marginTop: 0
+                                    marginTop: 0,
+                                    fontFamily: 'JetBrains Mono',
+                                    fontSize: '0.8rem'
                                 }}
                             >
                                 {showPassword ? "Hide" : "Show"}
@@ -126,22 +128,22 @@ export default function SignupBox() {
                     </div>
 
                     {error && (
-                        <div style={{ color: '#ef4444', marginBottom: '0.5rem', fontSize: '0.85rem', textAlign: 'left' }}>
+                        <div style={{ color: '#ef4444', marginBottom: '0.5rem', fontSize: '0.85rem', textAlign: 'left', fontFamily: 'JetBrains Mono' }}>
                             {error}
                         </div>
                     )}
 
                     {message && (
-                        <div style={{ color: '#4ade80', marginBottom: '0.5rem', fontSize: '0.85rem', textAlign: 'left' }}>
+                        <div style={{ color: '#4ade80', marginBottom: '0.5rem', fontSize: '0.85rem', textAlign: 'left', fontFamily: 'JetBrains Mono' }}>
                             {message}
                         </div>
                     )}
 
                     <button type="submit" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
-                        {loading ? 'Creating Account...' : 'Sign Up'}
+                        {loading ? 'Registering Protocol...' : 'Register Clearance'}
                     </button>
 
-                    <div className="divider">OR CONTINUE WITH</div>
+                    <div className="divider">OR AUTHENTICATE VIA PROTOCOL</div>
 
                     <button type="button" className="google-btn" onClick={handleGoogleSignup}>
                         <svg className="google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
@@ -151,12 +153,12 @@ export default function SignupBox() {
                             <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
                             <path fill="none" d="M0 0h48v48H0z" />
                         </svg>
-                        Google
+                        Google OAuth 2.0
                     </button>
 
                     <div className="form-section">
-                        Already have an account?
-                        <Link to="/login"> Log in</Link>
+                        Already authorized?
+                        <Link to="/login"> Access Terminal</Link>
                     </div>
                 </form>
             </div>
@@ -164,19 +166,19 @@ export default function SignupBox() {
             {/* Trust Strip */}
             <div className="trust-strip">
                 <div className="trust-item">
-                    <span className="trust-icon">🔒</span> Secure authentication via Supabase
+                    <span className="trust-icon">🔒</span> Encrypted Auth Layer
                 </div>
                 <div className="trust-item">
-                    <span className="trust-icon">🛡️</span> Passwords are encrypted
+                    <span className="trust-icon">⚡</span> Zero-Latency Telemetry
                 </div>
                 <div className="trust-item">
-                    <span className="trust-icon">👤</span> No spam. No data selling.
+                    <span className="trust-icon">🛡️</span> SHA-256 Protocol Security
                 </div>
             </div>
 
             {/* Social Proof */}
             <div className="social-proof">
-                <p>Used by designers and developers to improve portfolio clarity and hiring impact.</p>
+                <p>Engineered for elite developers & designers optimizing technical portfolios.</p>
             </div>
 
             {/* Footer Micro-text */}

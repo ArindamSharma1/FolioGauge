@@ -319,13 +319,12 @@ const ScanPage = () => {
             <FadeIn direction="up">
                 <div className="scan-hero">
                     <Helmet>
-                        <title>Scan Your Portfolio | FolioGauge</title>
-                        <meta name="description" content="Get instant AI feedback on your design portfolio. Scan for UX issues, visual clarity, and hiring impact." />
+                        <title>Scan Your Portfolio | FolioGauge Console</title>
+                        <meta name="description" content="Get instant AI telemetry and feedback on your design portfolio. Scan for UX issues, visual clarity, and hiring impact." />
                     </Helmet>
-                    <h1>Optimize Your Portfolio</h1>
+                    <h1>Telemetry Analysis Console</h1>
                     <p>
-                        Enter your portfolio URL to receive AI-powered feedback
-                        on design, structure, and clarity.
+                        Initialize scanner by entering target portfolio URL to receive AI-driven telemetry on UX structure, visual clarity, and developer hiring impact.
                     </p>
                 </div>
             </FadeIn>
@@ -334,7 +333,7 @@ const ScanPage = () => {
             <FadeIn direction="up" delay={0.2}>
                 <div className="scan-container">
                     <div className="persona-selector">
-                        <span className="persona-label">Who is viewing?</span>
+                        <span className="persona-label">Operator Protocol:</span>
                         <div className="persona-options">
                             <button
                                 type="button"
@@ -365,7 +364,7 @@ const ScanPage = () => {
                             <input
                                 type="url"
                                 className={`url-input ${isValid === false ? 'invalid' : isValid === true ? 'valid' : ''}`}
-                                placeholder="https://yourportfolio.com"
+                                placeholder="https://target-portfolio.dev"
                                 value={url}
                                 onChange={handleInput}
                                 required
@@ -377,7 +376,7 @@ const ScanPage = () => {
                             className="scan-btn"
                             disabled={isScanning || !isValid}
                         >
-                            {isScanning ? 'Analyzing…' : 'Analyze Now'}
+                            {isScanning ? 'Scanning…' : 'Execute Scan'}
                         </button>
                     </form>
 
@@ -386,14 +385,14 @@ const ScanPage = () => {
                             <p className="scan-error">{error}</p>
                             {error.toLowerCase().includes("limit reached") && (
                                 <div style={{ marginTop: '0.5rem', textAlign: 'center' }}>
-                                    <span style={{ color: '#4B5563', fontSize: '0.9rem' }}>Want more scans? </span>
+                                    <span style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Need higher rate limit? </span>
                                     {isHome ? (
-                                        <a href="#features" style={{ color: '#2563EB', fontWeight: '600', textDecoration: 'none' }}>
-                                            Upgrade to Pro &rarr;
+                                        <a href="#features" style={{ color: '#38bdf8', fontWeight: '600', textDecoration: 'none' }}>
+                                            Upgrade Protocol &rarr;
                                         </a>
                                     ) : (
-                                        <Link to="/#features" style={{ color: '#2563EB', fontWeight: '600', textDecoration: 'none' }}>
-                                            Upgrade to Pro &rarr;
+                                        <Link to="/#features" style={{ color: '#38bdf8', fontWeight: '600', textDecoration: 'none' }}>
+                                            Upgrade Protocol &rarr;
                                         </Link>
                                     )}
                                 </div>
@@ -666,12 +665,12 @@ const ScanPage = () => {
                             )}
 
                             <div className="brand-palette-grid">
-                                <div className="palette-swatch" onClick={() => handleCopyColor('#2563EB')} style={{ background: '#2563EB' }}><span>Primary</span></div>
-                                <div className="palette-swatch" onClick={() => handleCopyColor('#1E40AF')} style={{ background: '#1E40AF' }}><span>Secondary</span></div>
-                                <div className="palette-swatch" onClick={() => handleCopyColor('#F3F4F6')} style={{ background: '#F3F4F6' }}><span>Surface</span></div>
-                                <div className="palette-swatch" onClick={() => handleCopyColor('#111827')} style={{ background: '#111827' }}><span>Text</span></div>
+                                <div className="palette-swatch" onClick={() => handleCopyColor('#38bdf8')} style={{ background: '#38bdf8' }}><span>Cyan Accent</span></div>
+                                <div className="palette-swatch" onClick={() => handleCopyColor('#8b5cf6')} style={{ background: '#8b5cf6' }}><span>Cyber Violet</span></div>
+                                <div className="palette-swatch" onClick={() => handleCopyColor('#0f172a')} style={{ background: '#0f172a' }}><span>Surface Dark</span></div>
+                                <div className="palette-swatch" onClick={() => handleCopyColor('#f8fafc')} style={{ background: '#f8fafc' }}><span>Text Bright</span></div>
                             </div>
-                            <p style={{ marginTop: '1rem', fontStyle: 'italic', fontSize: '0.9rem' }}>Font Pair: <strong>Inter / Work Sans</strong></p>
+                            <p style={{ marginTop: '1rem', fontStyle: 'italic', fontSize: '0.9rem', color: '#94a3b8' }}>Font Pair: <strong>Space Grotesk / JetBrains Mono</strong></p>
                             <button className="scan-btn" onClick={() => setShowBrandingModal(false)} style={{ marginTop: '2rem', width: '100%' }}>Close</button>
                         </div>
                     </div>

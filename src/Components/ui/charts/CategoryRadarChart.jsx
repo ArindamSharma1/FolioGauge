@@ -27,22 +27,29 @@ const CategoryRadarChart = ({ scan }) => {
         <div style={{ width: '100%', height: 300 }}>
             <ResponsiveContainer>
                 <RadarChart outerRadius="70%" data={data}>
-                    <PolarGrid stroke="#E5E7EB" />
+                    <PolarGrid stroke="rgba(56, 189, 248, 0.2)" />
                     <PolarAngleAxis
                         dataKey="subject"
-                        tick={{ fill: '#374151', fontSize: 12, fontWeight: 500 }}
+                        tick={{ fill: '#f8fafc', fontSize: 12, fontWeight: 600, fontFamily: 'JetBrains Mono' }}
                     />
-                    {/* Hide Radius Axis numbers for cleaner look, strictly 0-100 */}
                     <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
                     <Radar
                         name="Score"
                         dataKey="A"
                         stroke="#8B5CF6"
                         strokeWidth={2}
-                        fill="#8B5CF6"
-                        fillOpacity={0.3}
+                        fill="#38bdf8"
+                        fillOpacity={0.35}
                     />
-                    <Tooltip />
+                    <Tooltip
+                        contentStyle={{
+                            backgroundColor: '#0f172a',
+                            border: '1px solid rgba(139, 92, 246, 0.4)',
+                            borderRadius: '8px',
+                            color: '#f8fafc',
+                            fontFamily: 'JetBrains Mono'
+                        }}
+                    />
                 </RadarChart>
             </ResponsiveContainer>
         </div>

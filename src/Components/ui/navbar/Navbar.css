@@ -64,11 +64,14 @@
 }
 
 @keyframes pulseDot {
-    0%, 100% { opacity: 1; transform: scale(1); }
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(0.8); }
 }
 
 .topbar-action-btn {
+
+
     background: transparent;
     border: 1px solid rgba(239, 68, 68, 0.4);
     color: var(--status-crimson);

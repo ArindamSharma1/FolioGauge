@@ -211,8 +211,8 @@ const ProfilePage = () => {
                         {/* ... (Header and Content remain same) ... */}
                         <div className="profile-header-compact">
                             <div className="header-text">
-                                <h1>Profile Settings</h1>
-                                <p className="greeting-text">You’re all set, {firstName} 👋</p>
+                                <h1>Operator Terminal & Audit Logs</h1>
+                                <p className="greeting-text">Operator ID: <strong>{firstName}</strong> | Security Clearance: Active ⚡</p>
                             </div>
                             {usageStats && (
                                 <div className={`tier-badge ${usageStats.tier}`}>
@@ -231,7 +231,7 @@ const ProfilePage = () => {
                             {/* Left Sidebar: Settings */}
                             <div className="settings-column">
                                 <div className="section-block">
-                                    <h3 className="section-title">Personal Info</h3>
+                                    <h3 className="section-title">Operator Identity</h3>
                                     <div className="info-group">
                                         <label>Full Name</label>
                                         <div className="info-value">{user?.user_metadata?.full_name || 'N/A'}</div>
@@ -245,7 +245,7 @@ const ProfilePage = () => {
                                 {usageStats && (
                                     <div className="prob-card usage-card">
                                         <div className="usage-header">
-                                            <h3>Current Plan</h3>
+                                            <h3>Hardware Allocation</h3>
                                             <span className="limit-label">{usageStats.used} / {usageStats.limit} Scans Used</span>
                                         </div>
                                         <div className="progress-bar-container">
@@ -254,37 +254,37 @@ const ProfilePage = () => {
                                                 style={{ width: `${Math.min((usageStats.used / usageStats.limit) * 100, 100)}%` }}
                                             ></div>
                                         </div>
-                                        <p className="usage-sub">Resets daily. Upgrade for more.</p>
+                                        <p className="usage-sub">Daily quota resets every 24h. Upgrade to expand limits.</p>
                                     </div>
                                 )}
 
                                 <div className="section-block security-block">
-                                    <h3 className="section-title">Security & Login</h3>
+                                    <h3 className="section-title">Security & Protocol</h3>
                                     <div className="security-row">
                                         <div className="sec-item">
                                             <label>Provider</label>
                                             <span>{user?.app_metadata?.provider || 'Email'}</span>
                                         </div>
                                         <div className="sec-item">
-                                            <label>Last Login</label>
+                                            <label>Last Sign-In</label>
                                             <span>{formatDate(user?.last_sign_in_at)}</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="section-block password-block">
-                                    <h3 className="section-title">Update Password</h3>
+                                    <h3 className="section-title">Key Rotation</h3>
                                     <form onSubmit={handlePasswordUpdate}>
                                         <input
                                             type="password"
-                                            placeholder="New Password"
+                                            placeholder="New Protocol Key (Password)"
                                             value={newPassword}
                                             onChange={(e) => setNewPassword(e.target.value)}
                                             className="profile-input"
                                         />
                                         <input
                                             type="password"
-                                            placeholder="Confirm New Password"
+                                            placeholder="Confirm Protocol Key"
                                             value={confirmPassword}
                                             onChange={(e) => setConfirmPassword(e.target.value)}
                                             className="profile-input"
@@ -294,16 +294,16 @@ const ProfilePage = () => {
                                             className="action-btn update-btn"
                                             disabled={loading || !newPassword}
                                         >
-                                            {loading ? 'Updating...' : 'Update Password'}
+                                            {loading ? 'Rotating Keys...' : 'Rotate Security Key'}
                                         </button>
                                     </form>
                                 </div>
 
                                 <button onClick={handleLogout} className="action-btn logout-btn">
-                                    Sign Out
+                                    Terminate Session (Sign Out)
                                 </button>
                                 <button onClick={handleDeleteAccount} className="action-btn delete-btn">
-                                    Delete Account
+                                    Purge Account Records
                                 </button>
                             </div>
 
@@ -311,14 +311,14 @@ const ProfilePage = () => {
                             <div className="analytics-column">
                                 {scanHistory.length > 0 ? (
                                     <div className="analytics-section-inner">
-                                        <h3 className="section-title">Visual Analytics Dashboard</h3>
+                                        <h3 className="section-title">Telemetry & Score Matrix</h3>
                                         <div className="charts-grid">
                                             <div className="chart-card">
-                                                <h4>Score History</h4>
+                                                <h4>Score Trajectory</h4>
                                                 <ScoreHistoryChart data={scanHistory} />
                                             </div>
                                             <div className="chart-card">
-                                                <h4>Latest Scan Breakdown ({formatDate(scanHistory[0].created_at)})</h4>
+                                                <h4>Latest Diagnostic Radar ({formatDate(scanHistory[0].created_at)})</h4>
                                                 <CategoryRadarChart scan={scanHistory[0]} />
                                             </div>
                                         </div>
