@@ -25,21 +25,29 @@ function TF() {
                         <div className="corner-bracket bl"></div>
                         <div className="corner-bracket br"></div>
 
-                        <iframe
-                            className={`video-element ${isVideoInteractible ? "interactible" : ""}`}
-                            src="https://www.youtube.com/embed/Nj_UqU17AjU?rel=0&modestbranding=1"
-                            title="FolioGauge Overview"
-                            frameBorder="0"
-                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
-                        {!isVideoInteractible && (
+                        {isVideoInteractible ? (
+                            <iframe
+                                className="video-element interactible"
+                                src="https://www.youtube.com/embed/Nj_UqU17AjU?rel=0&modestbranding=1&autoplay=1"
+                                title="FolioGauge Overview"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        ) : (
                             <div
-                                className="video-overlay"
+                                className="video-overlay active-preview"
                                 onClick={() => setIsVideoInteractible(true)}
                             >
-                                <div className="cyber-play-hint font-mono">
-                                    <span className="play-icon">▶</span> INITIALIZE_VIDEO_FEED
+                                <div className="video-preview-grid">
+                                    <div className="preview-center-badge font-mono">
+                                        <span className="play-icon">▶</span>
+                                        <span>INITIALIZE_VIDEO_FEED [STREAM_v2]</span>
+                                    </div>
+                                    <div className="preview-meta font-mono">
+                                        <span>CHANNEL: FOLIOGAUGE_HQ</span>
+                                        <span>ENCODING: HEVC_PRO</span>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -73,4 +81,5 @@ function TF() {
 }
 
 export default TF;
+
 

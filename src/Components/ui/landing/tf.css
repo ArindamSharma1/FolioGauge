@@ -71,7 +71,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(14, 17, 24, 0.6) 0%, rgba(8, 10, 15, 0.9) 100%);
+    background: radial-gradient(circle at center, rgba(14, 17, 24, 0.85) 0%, rgba(8, 10, 15, 0.98) 100%);
     cursor: pointer;
     z-index: 10;
     display: flex;
@@ -80,35 +80,64 @@
     transition: background 0.3s ease;
 }
 
-.video-overlay:hover {
-    background: radial-gradient(circle, rgba(14, 17, 24, 0.4) 0%, rgba(8, 10, 15, 0.8) 100%);
+.video-overlay.active-preview {
+    background: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(14, 17, 24, 0.9) 0%, rgba(8, 10, 15, 0.98) 100%);
+    background-size: 30px 30px, 30px 30px, 100% 100%;
 }
 
-.cyber-play-hint {
-    background: rgba(14, 17, 24, 0.9);
+.video-overlay:hover {
+    background: radial-gradient(circle at center, rgba(14, 17, 24, 0.6) 0%, rgba(8, 10, 15, 0.9) 100%);
+}
+
+.video-preview-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    border: 1px dashed var(--border-muted);
+    border-radius: 6px;
+    background: rgba(8, 10, 15, 0.8);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.05);
+}
+
+.preview-center-badge {
+    background: rgba(14, 17, 24, 0.95);
     border: 1px solid var(--accent-cyan);
     color: var(--text-primary);
-    padding: 0.9rem 1.6rem;
+    padding: 1.1rem 2rem;
     border-radius: 4px;
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
     transition: all 0.25s ease;
 }
 
-.video-overlay:hover .cyber-play-hint {
+.video-overlay:hover .preview-center-badge {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.5);
     background: var(--accent-cyan);
     color: var(--bg-obsidian);
 }
 
-.play-icon {
-    font-size: 1rem;
+.preview-meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
 }
+
+.play-icon {
+    font-size: 1.1rem;
+}
+
 
 /* Mission Statement Box */
 .about-1 {
