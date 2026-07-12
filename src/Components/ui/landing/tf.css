@@ -1,137 +1,68 @@
+/* Cyberpunk System Briefing & Telemetry Video Feed */
 .tf-section {
-    width: 100%;
-    padding: 0;
-    margin-top: 15rem;
-    /* margin: 0; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Work Sans", sans-serif;
-    overflow: hidden;
-}
-
-.video-element {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-}
-
-.video-wrapper {
-    width: 100%;
-    height: 50rem;
     position: relative;
+    padding: 6rem 0;
+    background: var(--bg-obsidian);
+    border-top: 1px solid var(--border-tech);
     overflow: hidden;
-    border-radius: 30px;
 }
 
-.fg-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.tf-fade {
-    width: 100%;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .video-wrapper {
-        height: 260px;
-    }
-
-    .about-1 {
-        flex-direction: column;
-        padding-top: 5rem;
-        height: auto;
-    }
-
-    .about-1-text {
-        padding-left: 0;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .beam-container {
-        width: 100%;
-        padding: 0 1rem;
-    }
-}
-
-.about-1 {
-    padding-top: 15rem;
-    width: 100%;
-    min-height: 80vh;
+.tf-terminal-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    overflow: hidden;
-    padding-bottom: 1rem;
-    font-family: "Work Sans", sans-serif;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed var(--border-muted);
 }
 
-.about-content {
-    flex: 1;
+.header-status {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+}
+
+.video-tech-wrapper {
     position: relative;
+    width: 100%;
+    height: 38rem;
+    background: rgba(8, 10, 15, 0.95);
+    border: 1px solid var(--border-tech);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.07);
 }
 
-.about-1-text {
-    font-size: 2.5rem;
-    font-weight: 500;
-    word-spacing: 7px;
-    color: #121317;
-    padding-left: 5rem;
-    position: relative;
-    margin-bottom: 25rem;
-    margin-top: 0;
-    display: inline-block;
-}
-
-.about-1-text.typing-done::after {
-    content: "";
-    display: inline-block;
-    width: 3px;
-    height: 1em;
-    background-color: var(--primary-text);
-    margin-left: 5px;
-    vertical-align: text-bottom;
-    animation: blink 1s step-end infinite;
-}
-
-
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-/* Video Overlay for Scroll Performance */
-.video-element {
+/* Corner brackets */
+.corner-bracket {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: var(--accent-cyan);
     pointer-events: none;
-    /* Disable interaction by default */
-    transition: filter 0.3s;
+    z-index: 5;
+}
+
+.corner-bracket.tl { top: 6px; left: 6px; border-top: 2px solid; border-left: 2px solid; }
+.corner-bracket.tr { top: 6px; right: 6px; border-top: 2px solid; border-right: 2px solid; }
+.corner-bracket.bl { bottom: 6px; left: 6px; border-bottom: 2px solid; border-left: 2px solid; }
+.corner-bracket.br { bottom: 6px; right: 6px; border-bottom: 2px solid; border-right: 2px solid; }
+
+.video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: filter 0.3s ease;
 }
 
 .video-element.interactible {
     pointer-events: auto;
-    /* Enable interaction when clicked */
 }
 
 .video-overlay {
@@ -140,25 +71,116 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
+    background: radial-gradient(circle, rgba(14, 17, 24, 0.6) 0%, rgba(8, 10, 15, 0.9) 100%);
     cursor: pointer;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 0.3s ease;
 }
 
-.play-hint {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
+.video-overlay:hover {
+    background: radial-gradient(circle, rgba(14, 17, 24, 0.4) 0%, rgba(8, 10, 15, 0.8) 100%);
+}
+
+.cyber-play-hint {
+    background: rgba(14, 17, 24, 0.9);
+    border: 1px solid var(--accent-cyan);
+    color: var(--text-primary);
+    padding: 0.9rem 1.6rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    transition: all 0.25s ease;
+}
+
+.video-overlay:hover .cyber-play-hint {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+    background: var(--accent-cyan);
+    color: var(--bg-obsidian);
+}
+
+.play-icon {
     font-size: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-    backdrop-filter: blur(4px);
 }
 
-.video-overlay:hover .play-hint {
-    opacity: 1;
+/* Mission Statement Box */
+.about-1 {
+    padding-top: 3.5rem;
 }
+
+.about-terminal-box {
+    padding: 2.5rem;
+    border-radius: 8px;
+    width: 100%;
+    background: rgba(14, 17, 24, 0.85);
+}
+
+.box-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border-muted);
+    margin-bottom: 1.8rem;
+}
+
+.about-1-text {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.about-1-text.typing-done::after {
+    content: "_";
+    display: inline-block;
+    color: var(--accent-cyan);
+    margin-left: 6px;
+    animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .video-tech-wrapper {
+        height: 24rem;
+    }
+
+    .about-1-text {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tf-terminal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .video-tech-wrapper {
+        height: 16rem;
+    }
+
+    .about-terminal-box {
+        padding: 1.5rem;
+    }
+
+    .about-1-text {
+        font-size: 1.05rem;
+    }
+}

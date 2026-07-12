@@ -1,100 +1,179 @@
+/* Core Differentials Section */
 .whyus-section {
-    padding: 80px 20px;
-    text-align: center;
-    font-family: inherit;
-    margin-top: 4rem;
+    position: relative;
+    padding: 6rem 0;
+    background: var(--bg-obsidian);
+    border-top: 1px solid var(--border-tech);
+    overflow: hidden;
 }
 
-.whyus-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1A1A1A;
-    margin-bottom: 60px;
+.whyus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.whyus-cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.whyus-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 3rem 2rem;
-    width: 350px;
-    /* Slightly wider */
-    min-height: 380px;
+.whyus-panel {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(229, 231, 235, 0.5);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    justify-content: space-between;
+    padding: 1.8rem;
+    border-radius: 8px;
+    height: 100%;
+    transition: all 0.3s ease;
 }
 
-.whyus-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+.whyus-panel:hover,
+.whyus-panel.active-highlight {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.08);
+    transform: translateY(-4px);
 }
 
-.whyus-icon-wrapper {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    background-color: transparent;
+.panel-top {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    border: 1px solid #e5e7eb;
+    margin-bottom: 1.2rem;
+    font-size: 0.72rem;
 }
 
-.whyus-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--primary-text);
-    /* Using brand color for icons */
+.panel-tag {
+    color: var(--text-muted);
 }
 
-.whyus-card-title {
-    font-size: 1.5rem;
+.panel-metric {
     font-weight: 700;
-    color: #1A1A1A;
-    margin-bottom: 16px;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
 }
 
-.whyus-card-description {
-    font-size: 1rem;
-    color: #4b5563;
+.panel-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+}
+
+.panel-desc {
+    font-size: 0.88rem;
     line-height: 1.6;
-    max-width: 280px;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
 }
 
-.whyus-link-wrapper {
-    margin-top: 50px;
+.panel-benchmark {
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-muted);
+    font-size: 0.72rem;
+    color: var(--text-muted);
 }
 
-.whyus-link {
-    color: #3b82f6;
-    font-size: 1.125rem;
+/* Side by side comparison */
+.whyus-comparison {
+    padding: 1.8rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+    background: rgba(14, 17, 24, 0.8);
+}
+
+.comp-header {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border-muted);
+    margin-bottom: 1.5rem;
+}
+
+.comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.comp-side {
+    padding: 1.2rem;
+    border-radius: 6px;
+}
+
+.comp-side.old {
+    background: rgba(239, 68, 68, 0.04);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.comp-side.new {
+    background: rgba(0, 240, 255, 0.05);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+.comp-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.comp-side ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.comp-side.old ul li {
+    color: #f87171;
+}
+
+.comp-side.new ul li {
+    color: var(--status-lime);
+}
+
+/* FAQ link row */
+.whyus-faq-link-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.cyber-faq-link {
+    color: var(--accent-cyan);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
+    transition: all 0.2s ease;
 }
 
-.whyus-link:hover {
-    text-decoration: underline;
+.cyber-faq-link:hover {
+    color: #80efff;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
 }
 
-@media (max-width: 768px) {
-    .whyus-cards-container {
-        flex-direction: column;
-        align-items: center;
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .whyus-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
+
+@media screen and (max-width: 700px) {
+    .comp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .whyus-faq-link-row {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+}

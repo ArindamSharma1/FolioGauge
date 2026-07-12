@@ -1,12 +1,16 @@
+/* Cyberpunk Integrated Toolchain & Neural Nodes Strip */
 .icon-strip-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 2rem 0;
-    margin-top: -20rem;
+    padding: 3rem 0;
+    margin-top: 2rem;
     overflow-x: hidden;
     position: relative;
     z-index: 10;
+    background: var(--bg-obsidian);
+    border-top: 1px dashed var(--border-muted);
+    border-bottom: 1px dashed var(--border-muted);
 }
 
 .icon-strip {
@@ -14,29 +18,41 @@
     width: 100%;
     justify-content: space-between;
     padding: 1rem 2rem;
-    /* max-width: 1400px; Removed for full width */
-    gap: 5px;
+    gap: 15px;
 }
 
 .icon-circle {
-    width: 80px;
-    height: 80px;
-    background-color: #FAFAFF;
-    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: #0c0f17;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    /* cursor: pointer; */
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.12);
     flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+    transform: scale(1.1) translateY(-5px);
+    border-color: #80efff;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+    background-color: var(--accent-cyan);
 }
 
 .icon-svg {
-    width: 32px;
-    height: 32px;
-    stroke: #121317;
+    width: 30px;
+    height: 30px;
+    stroke: var(--accent-cyan);
     stroke-width: 1.5;
     fill: none;
+    transition: stroke 0.3s ease;
+}
+
+.icon-circle:hover .icon-svg {
+    stroke: var(--bg-obsidian);
 }
 
 /* Mobile adjustments */
@@ -46,6 +62,7 @@
         justify-content: flex-start;
         padding-left: 1rem;
         padding-right: 1rem;
+        margin-top: 1rem;
     }
 
     .icon-strip {
@@ -55,13 +72,9 @@
     }
 
     .icon-circle {
-        width: 64px;
-        height: 64px;
-    }
-
-    .icon-svg {
-        width: 24px;
-        height: 24px;
+        width: 58px;
+        height: 58px;
+        border-radius: 10px;
     }
 
     .icon-svg {
@@ -70,19 +83,16 @@
     }
 }
 
-@keyframes float {
-
-    0%,
-    100% {
+@keyframes floatNode {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-8px);
     }
 }
 
 .icon-circle {
-    animation: float 3s ease-in-out infinite;
+    animation: floatNode 3.5s ease-in-out infinite;
     will-change: transform;
-}
+}

@@ -1,39 +1,170 @@
-/* Global Reset */
+/* Global Reset & Cyberpunk / Observability Design Tokens */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
 
 :root {
-    --primary-text: #1A1A1A;
-    --secondary-text: #000000;
+    /* Core Obsidian Palette */
+    --bg-obsidian: #090a0f;
+    --bg-panel: #0e1118;
+    --bg-elevated: #141824;
+    --bg-surface: rgba(20, 24, 36, 0.85);
+    
+    /* Primary Precision Accents */
+    --accent-cyan: #00f0ff;
+    --accent-cyan-dim: rgba(0, 240, 255, 0.15);
+    --accent-cyan-glow: rgba(0, 240, 255, 0.35);
+    
+    /* Secondary Telemetry Accents */
+    --accent-magenta: #ff007f;
+    --accent-magenta-dim: rgba(255, 0, 127, 0.15);
+    --accent-violet: #a855f7;
+    --accent-violet-dim: rgba(168, 85, 247, 0.15);
+    
+    /* Diagnostics / Status States */
+    --status-lime: #10b981;
+    --status-lime-dim: rgba(16, 185, 129, 0.15);
+    --status-amber: #f59e0b;
+    --status-amber-dim: rgba(245, 158, 11, 0.15);
+    --status-crimson: #ef4444;
+    --status-crimson-dim: rgba(239, 68, 68, 0.15);
+    
+    /* Text Typography Levels */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-dark: #090a0f;
+    
+    /* Structural Borders & Shadows */
+    --border-tech: rgba(0, 240, 255, 0.25);
+    --border-muted: rgba(255, 255, 255, 0.08);
+    --border-active: rgba(0, 240, 255, 0.6);
+    --shadow-cyan: 0 0 25px rgba(0, 240, 255, 0.2);
+    --shadow-magenta: 0 0 25px rgba(255, 0, 127, 0.2);
+    --shadow-elevated: 0 12px 36px rgba(0, 0, 0, 0.65);
+    
+    /* Typography Font Stacks */
+    --font-heading: 'Space Grotesk', 'Syne', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-body: 'Inter', sans-serif;
 }
 
-/* Dark mode variables removed */
+/* Custom Selection & Scrollbar */
+::selection {
+    background: var(--accent-cyan);
+    color: var(--bg-obsidian);
+}
 
-/* Custom Scrollbar */
+::-moz-selection {
+    background: var(--accent-cyan);
+    color: var(--bg-obsidian);
+}
+
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--bg-obsidian);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #60A5FA;
-    border-radius: 5px;
+    background: #1e293b;
+    border-radius: 2px;
+    border: 1px solid var(--border-muted);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #3b82f6;
-    /* hover effect */
+    background: var(--accent-cyan);
+    box-shadow: var(--shadow-cyan);
 }
 
-/* For Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: #60A5FA #f1f1f1;
+    scrollbar-color: #1e293b var(--bg-obsidian);
 }
+
+/* --- Global Technical Utility Classes --- */
+.tech-panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-muted);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-panel:hover {
+    border-color: var(--border-tech);
+    box-shadow: var(--shadow-cyan);
+}
+
+/* Technical corner markers for cyberpunk panels */
+.tech-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid var(--accent-cyan);
+    border-right: 1px solid var(--accent-cyan);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.glow-border {
+    border: 1px solid var(--accent-cyan) !important;
+    box-shadow: var(--shadow-cyan) !important;
+}
+
+.mono-font {
+    font-family: var(--font-mono) !important;
+}
+
+.heading-font {
+    font-family: var(--font-heading) !important;
+}
+
+.terminal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-muted);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.terminal-badge.magenta {
+    color: var(--accent-magenta);
+    border-color: rgba(255, 0, 127, 0.3);
+    background: var(--accent-magenta-dim);
+}
+
+.terminal-badge.lime {
+    color: var(--status-lime);
+    border-color: rgba(16, 185, 129, 0.3);
+    background: var(--status-lime-dim);
+}
+
+.scanline-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 240, 255, 0.03) 50%,
+        rgba(0, 240, 255, 0.03)
+    );
+    background-size: 100% 4px;
+}
