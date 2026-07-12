@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-export default function FloatingParticles() {
+function FloatingParticles() {
     const [init, setInit] = useState(false);
+    const [gpuSafe, setGpuSafe] = useState(true);
 
     useEffect(() => {
         initParticlesEngine(async (engine) => {
@@ -11,7 +12,19 @@ export default function FloatingParticles() {
             await loadSlim(engine);
         }).then(() => {
             setInit(true);
+        }).catch((err) => {
+            console.warn("TSParticles engine initialization skipped due to GPU/WebGL context:", err);
+            setGpuSafe(false);
         });
+
+        const handleContextLost = (e) => {
+            e.preventDefault();
+            console.warn("WebGL context lost detected on window. Unmounting TSParticles to protect browser stability.");
+            setGpuSafe(false);
+        };
+
+        window.addEventListener("webglcontextlost", handleContextLost);
+        return () => window.removeEventListener("webglcontextlost", handleContextLost);
     }, []);
 
     const options = useMemo(
@@ -24,24 +37,25 @@ export default function FloatingParticles() {
                 zIndex: -1, // behind hero, ise bhe mat chedna
             },
             detectRetina: false,
+            fpsLimit: 60,
             particles: {
                 number: {
-                    value: 20,
-                    density: { enable: true, area: 800 },
+                    value: 12, // Reduced density for ultra-low GPU footprint and zero crash risk
+                    density: { enable: true, area: 1000 },
                 },
                 color: {
                     value: "#60A5FA",
                 },
                 opacity: {
-                    value: 0.8,
-                    random: { enable: true, minimumValue: 0.3 },
+                    value: 0.6,
+                    random: { enable: true, minimumValue: 0.2 },
                 },
                 size: {
-                    value: { min: 1, max: 3 },
+                    value: { min: 1, max: 2 },
                 },
                 move: {
                     enable: true,
-                    speed: 0.6,
+                    speed: 0.4,
                     direction: "none",
                     outModes: "out",
                 },
@@ -60,9 +74,13 @@ export default function FloatingParticles() {
         []
     );
 
-    if (init) {
+    if (init && gpuSafe) {
         return <Particles id="tsparticles" options={options} />;
     }
 
-    return <></>;
+    return null;
 }
+
+export default React.memo(FloatingParticles);
+
+

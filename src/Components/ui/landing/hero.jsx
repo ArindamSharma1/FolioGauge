@@ -4,20 +4,33 @@ import "./hero.css";
 import FloatingParticles from "./FloatingParticles.jsx";
 import FadeIn from "../FadeIn.jsx";
 
-function Hero() {
-    const [targetUrl, setTargetUrl] = useState("https://github.com/developer-portfolio");
-    const [activeTab, setActiveTab] = useState("telemetry");
+function ConsoleFooterBar({ targetUrl }) {
     const [scanPulse, setScanPulse] = useState(0);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const interval = setInterval(() => {
             setScanPulse((prev) => (prev + 1) % 100);
-        }, 150);
+        }, 1000); // 1s tick instead of 150ms for rock solid 60fps stability
         return () => clearInterval(interval);
     }, []);
 
+    return (
+        <div className="console-footer-bar font-mono">
+            <span className="footer-status-text">
+                <span className="live-blink">▶</span> TARGET: {targetUrl || "none"}
+            </span>
+            <span className="footer-status-meta">SYS_LOAD: {(24 + (scanPulse % 8))}%</span>
+        </div>
+    );
+}
+
+function Hero() {
+    const [targetUrl, setTargetUrl] = useState("https://github.com/developer-portfolio");
+    const [activeTab, setActiveTab] = useState("telemetry");
+    const navigate = useNavigate();
+
     const handleRunAnalysis = (e) => {
+
         e.preventDefault();
         if (targetUrl.trim()) {
             localStorage.setItem("folio_target_url", targetUrl.trim());
@@ -247,12 +260,7 @@ function Hero() {
 
                             {/* Scanline overlay & animated status bar */}
                             <div className="scanline-overlay"></div>
-                            <div className="console-footer-bar font-mono">
-                                <span className="footer-status-text">
-                                    <span className="live-blink">▶</span> TARGET: {targetUrl || "none"}
-                                </span>
-                                <span className="footer-status-meta">SYS_LOAD: {(24 + (scanPulse % 8))}%</span>
-                            </div>
+                            <ConsoleFooterBar targetUrl={targetUrl} />
                         </div>
                     </FadeIn>
                 </div>

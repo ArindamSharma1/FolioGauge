@@ -27,8 +27,13 @@ import { supabase } from "./supabaseClient"
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const handleLoaded = useCallback(() => setIsLoading(false), []);
+  const [isLoading, setIsLoading] = useState(() => {
+    return !sessionStorage.getItem("folio_booted");
+  });
+  const handleLoaded = useCallback(() => {
+    sessionStorage.setItem("folio_booted", "true");
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
     // Scroll to top on initial load/refresh
